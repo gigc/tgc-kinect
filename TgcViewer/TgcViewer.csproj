@@ -58,10 +58,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ionic.Zip, Version=1.9.1.2, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\Ionic.Zip.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\WINDOWS\Microsoft.NET\Managed DirectX\v9.05.132\Microsoft.DirectX.dll</HintPath>
@@ -93,6 +89,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.VisualC" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Example\ExampleLoader.cs" />
@@ -325,19 +322,10 @@
     </Compile>
     <Compile Include="Utils\Ui\TgcViewerConfig.cs" />
     <Compile Include="Utils\Ui\ValidationUtils.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pictureBox1.Image.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pictureBox2.Image.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\pictureBox3.Image.jpg" />
+    <Compile Include="Utils\TgcSceneLoader\TgcDxMesh.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="IconoTgc.ico" />
-    <None Include="Resources\dir_icon.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

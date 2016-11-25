@@ -6,7 +6,6 @@ using System.IO;
 using System.Drawing;
 using Microsoft.DirectX;
 using TgcViewer.Utils.TgcSceneLoader;
-using Ionic.Zip;
 using TgcViewer.Utils.TgcGeometry;
 using TgcViewer.Utils.PortalRendering;
 
@@ -63,28 +62,6 @@ namespace TgcViewer.Utils.TgcSceneLoader
         {
             string mediaPath = filePath.Substring(0, filePath.LastIndexOf('\\') + 1);
             return loadSceneFromFile(filePath, mediaPath);
-        }
-
-        /// <summary>
-        /// Carga una escena a partir de un archivo en formato .ZIP.
-        /// Se asume que dentro del ZIP se encuentra el archivo XML de la escena y todas las texturas necesarias.
-        /// </summary>
-        /// <param name="sceneFileName">Nombre del archivo XML que tiene la información de la escena</param>
-        /// <param name="zipFilePath">Path del archivo ZIP que contiene la escena.</param>
-        /// <param name="extractDir">Path del directorio en donde se va a extraer el ZIP</param>
-        /// <returns>Escena cargada</returns>
-        public TgcScene loadSceneFromZipFile(string sceneFileName, string zipFilePath, string extractDir)
-        {
-            //extraer archivo pisando archivos existentes
-            using (ZipFile zip = ZipFile.Read(zipFilePath))
-            {
-                foreach (ZipEntry e in zip)
-                {
-                    e.Extract(extractDir, ExtractExistingFileAction.OverwriteSilently);
-                }
-            }
-
-            return loadSceneFromFile(extractDir + sceneFileName, extractDir);
         }
 
         /// <summary>
